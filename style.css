@@ -1,0 +1,793 @@
+/*
+ * General Styles & Reset
+ * Applies to the entire page, includes a mini-reset for consistency.
+ */
+body {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: white; /* This color is overridden for specific elements like headings and paragraphs */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Mini Reset */
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::before,
+::after {
+    content: "";
+}
+
+html,
+body {
+    height: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    min-height: 100vh; /* luôn ít nhất là chiều cao màn hình */
+}
+
+html {
+    font-size: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #7A7A7A;
+    text-decoration: none;
+}
+
+/*
+ * Heading & Layout Components
+ * Styles for the main page title and descriptive text.
+ */
+.subheading {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #7A7A7A;
+    margin: 15px 0 40px 0;
+}
+
+.main-heading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px; /* khoảng cách giữa chữ và line */
+  max-width: 100%;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.main-heading {
+  font-weight: 600;
+  font-size: 36px;
+  margin-top: 10px;
+  color: #4D5F81;
+  white-space: nowrap;
+}
+
+.line {
+  height: 1px;
+  background-color: #E0E0E0;
+  opacity: 1;
+  width: 335px;
+  margin-top: 20px;
+}
+
+.bottom-line {
+  max-width: 1170px;  /* hoặc bất kỳ giá trị nào bạn muốn */
+  height: 1px;
+  background-color: #E0E0E0;
+  margin: 80px auto 0 auto;  /* căn giữa, cách trên 80px */
+  border: none;
+  width: 100%; /* giữ cho line co giãn đầy đủ trong max-width */
+}
+
+/*
+ * Button Styles
+ */
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    border: 2px solid #7A7A7A;
+    margin-top: 100px;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 0.1em 0.4em;
+    text-align: center;
+    -webkit-transition: color 0.3s, border-color 0.3s;
+    -moz-transition: color 0.3s, border-color 0.3s;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+    border-color: #4D5F81;
+    color: #4D5F81;
+}
+
+/*
+ * Book Grid Layout
+ * Defines the alignment and individual list item styling for books.
+ */
+.align {
+    clear: both;
+    margin: auto;
+    width: 100%;
+    max-width: 1170px;
+    text-align: center;
+}
+
+.align > li {
+    width: 500px;
+    min-height: 300px;
+    display: inline-block;
+    margin: 30px 20px 30px 30px;
+    padding: 0 0 0 60px;
+    vertical-align: top;
+}
+
+/*
+ * 3D Book Structure
+ * Styles for the book container and its various components (covers, pages, spine).
+ */
+.book {
+    position: relative;
+    width: 160px;
+    height: 220px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.hardcover_front,
+.hardcover_back,
+.book_spine,
+.hardcover_front li,
+.hardcover_back li,
+.book_spine li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.hardcover_front,
+.hardcover_back {
+    -webkit-transform-origin: 0% 100%;
+    -moz-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+}
+
+/* Cover & Spine Colors/Backgrounds */
+.hardcover_front li:first-child {
+    background-color: #eee;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.hardcover_front li:last-child {
+    background: #fffbec; /* Reverse side of front cover */
+}
+
+.hardcover_back li:first-child {
+    background: #fffbec; /* Front side of back cover */
+}
+
+.hardcover_back li:last-child {
+    background: #fffbec; /* Reverse side of back cover */
+}
+
+.book_spine li:first-child {
+    background: #eee;
+}
+
+.book_spine li:last-child {
+    background: #333;
+}
+
+/* Page Styles */
+.page,
+.page > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.page {
+    width: 100%;
+    height: 98%;
+    top: 1%;
+    left: 3%;
+    z-index: 10;
+}
+
+.page > li {
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+    background: -moz-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+    background: -ms-linear-gradient(left, #e1ddd8 0%, #fffbf6 100%);
+    background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
+    box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1),
+        inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+    border-radius: 0px 5px 5px 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transition-property: transform;
+    -moz-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+/* Initial 3D Transformations (Closed Book) */
+.hardcover_front {
+    -webkit-transform: rotateY(-34deg) translateZ(8px);
+    -moz-transform: rotateY(-34deg) translateZ(8px);
+    transform: rotateY(-34deg) translateZ(8px);
+    z-index: 100;
+    -webkit-transition: all 0.8s ease, z-index 0.6s;
+    -moz-transition: all 0.8s ease, z-index 0.6s;
+    transition: all 0.8s ease, z-index 0.6s;
+}
+
+.hardcover_back {
+    -webkit-transform: rotateY(-15deg) translateZ(-8px);
+    -moz-transform: rotateY(-15deg) translateZ(-8px);
+    transform: rotateY(-15deg) translateZ(-8px);
+}
+
+.book_spine {
+    -webkit-transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+    -moz-transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+    transform: rotateY(60deg) translateX(-5px) translateZ(-12px);
+    width: 16px;
+    z-index: 0;
+}
+
+.page li:nth-child(1) { -webkit-transform: rotateY(-28deg); transform: rotateY(-28deg); -webkit-transition-duration: 0.6s; transition-duration: 0.6s; }
+.page li:nth-child(2) { -webkit-transform: rotateY(-30deg); transform: rotateY(-30deg); -webkit-transition-duration: 0.6s; transition-duration: 0.6s; }
+.page li:nth-child(3) { -webkit-transform: rotateY(-32deg); transform: rotateY(-32deg); -webkit-transition-duration: 0.4s; transition-duration: 0.4s; }
+.page li:nth-child(4) { -webkit-transform: rotateY(-34deg); transform: rotateY(-34deg); -webkit-transition-duration: 0.5s; transition-duration: 0.5s; }
+.page li:nth-child(5) { -webkit-transform: rotateY(-36deg); transform: rotateY(-36deg); -webkit-transition-duration: 0.6s; transition-duration: 0.6s; }
+
+/* Individual Faces of Covers and Spine */
+.hardcover_front li:first-child {
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    transform: translateZ(2px);
+}
+
+.hardcover_front li:last-child {
+    -webkit-transform: rotateY(180deg) translateZ(2px);
+    -moz-transform: rotateY(180deg) translateZ(2px);
+    transform: rotateY(180deg) translateZ(2px);
+}
+
+.hardcover_back li:first-child {
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    transform: translateZ(2px);
+}
+
+.hardcover_back li:last-child {
+    -webkit-transform: translateZ(-2px);
+    -moz-transform: translateZ(-2px);
+    transform: translateZ(-2px);
+}
+
+.book_spine li:first-child {
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    transform: translateZ(2px);
+}
+
+.book_spine li:last-child {
+    -webkit-transform: translateZ(-2px);
+    -moz-transform: translateZ(-2px);
+    transform: translateZ(-2px);
+}
+
+/* Thickness of Covers and Spine */
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before,
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before,
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before,
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before,
+.book_spine li:first-child:after,
+.book_spine li:first-child:before,
+.book_spine li:last-child:after,
+.book_spine li:last-child:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #999; /* Thickness color */
+}
+
+/* Front Cover Thickness */
+.hardcover_front li:first-child:after,
+.hardcover_front li:first-child:before {
+    width: 4px;
+    height: 100%;
+}
+.hardcover_front li:first-child:after {
+    -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+.hardcover_front li:first-child:before {
+    -webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+    -moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+    transform: rotateY(90deg) translateZ(158px) translateX(2px);
+}
+.hardcover_front li:last-child:after,
+.hardcover_front li:last-child:before {
+    width: 4px;
+    height: 160px;
+}
+.hardcover_front li:last-child:after {
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(-2px) translateY(-78px);
+}
+.hardcover_front li:last-child:before {
+    box-shadow: 0px 0px 30px 5px #333;
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(-2px) translateY(-78px);
+}
+
+/* Back Cover Thickness */
+.hardcover_back li:first-child:after,
+.hardcover_back li:first-child:before {
+    width: 4px;
+    height: 100%;
+}
+.hardcover_back li:first-child:after {
+    -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+.hardcover_back li:first-child:before {
+    -webkit-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+    -moz-transform: rotateY(90deg) translateZ(158px) translateX(2px);
+    transform: rotateY(90deg) translateZ(158px) translateX(2px);
+}
+.hardcover_back li:last-child:after,
+.hardcover_back li:last-child:before {
+    width: 4px;
+    height: 160px;
+}
+.hardcover_back li:last-child:after {
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(80px) translateX(2px) translateY(-78px);
+}
+.hardcover_back li:last-child:before {
+    box-shadow: 10px -1px 80px 20px #666;
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(-140px) translateX(2px) translateY(-78px);
+}
+
+/* Book Spine Thickness */
+.book_spine li:first-child:after,
+.book_spine li:first-child:before {
+    width: 4px;
+    height: 100%;
+}
+.book_spine li:first-child:after {
+    -webkit-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    -moz-transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+    transform: rotateY(90deg) translateZ(-2px) translateX(2px);
+}
+.book_spine li:first-child:before {
+    -webkit-transform: rotateY(-90deg) translateZ(-12px);
+    -moz-transform: rotateY(-90deg) translateZ(-12px);
+    transform: rotateY(-90deg) translateZ(-12px);
+}
+.book_spine li:last-child:after,
+.book_spine li:last-child:before {
+    width: 4px;
+    height: 16px;
+}
+.book_spine li:last-child:after {
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(8px) translateX(2px) translateY(-6px);
+}
+.book_spine li:last-child:before {
+    box-shadow: 5px -1px 100px 40px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+    -moz-transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+    transform: rotateX(90deg) rotateZ(90deg) translateZ(-210px) translateX(2px) translateY(-6px);
+}
+
+/*
+ * Hover Effects (Opening the Book)
+ */
+.book:hover > .hardcover_front {
+    -webkit-transform: rotateY(-145deg) translateZ(0);
+    -moz-transform: rotateY(-145deg) translateZ(0);
+    transform: rotateY(-145deg) translateZ(0);
+    z-index: 0;
+}
+
+.book:hover > .page li:nth-child(1) { -webkit-transform: rotateY(-30deg); transform: rotateY(-30deg); -webkit-transition-duration: 1.5s; transition-duration: 1.5s; }
+.book:hover > .page li:nth-child(2) { -webkit-transform: rotateY(-35deg); transform: rotateY(-35deg); -webkit-transition-duration: 1.8s; transition-duration: 1.8s; }
+.book:hover > .page li:nth-child(3) { -webkit-transform: rotateY(-118deg); transform: rotateY(-118deg); -webkit-transition-duration: 1.6s; transition-duration: 1.6s; }
+.book:hover > .page li:nth-child(4) { -webkit-transform: rotateY(-130deg); transform: rotateY(-130deg); -webkit-transition-duration: 1.4s; transition-duration: 1.4s; }
+.book:hover > .page li:nth-child(5) { -webkit-transform: rotateY(-140deg); transform: rotateY(-140deg); -webkit-transition-duration: 1.2s; transition-duration: 1.2s; }
+
+/*
+ * Bonus Elements & Design
+ * Styles for cover design effects, ribbons, and figcaptions.
+ */
+
+/* Ribbon Styles */
+.ribbon {
+    background: #c0392b;
+    color: #fff;
+    display: block;
+    font-size: 0.7em;
+    position: absolute;
+    top: 11px;
+    right: 1px;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    letter-spacing: 0.15em;
+    text-align: center;
+    -webkit-transform: rotateZ(45deg) translateZ(1px);
+    -moz-transform: rotateZ(45deg) translateZ(1px);
+    transform: rotateZ(45deg) translateZ(1px);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 10;
+}
+
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    top: -20px;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid #c0392b;
+    border-top: 20px solid transparent;
+}
+
+.ribbon::before {
+    left: -20px;
+    border-left: 20px solid transparent;
+}
+
+.ribbon::after {
+    right: -20px;
+    border-right: 20px solid transparent;
+}
+
+/* Figcaption (Book Description) */
+figcaption {
+    padding-left: 40px;
+    text-align: left;
+    position: absolute;
+    top: 0%;
+    left: 160px;
+    width: 310px;
+    backface-visibility: hidden;
+}
+
+figcaption h1 {
+    color: #4D5F81;
+    margin: 0;
+}
+
+figcaption span {
+    color: #ED553B;
+    padding: 0.6em 0 1em 0;
+    display: block;
+}
+
+figcaption p {
+    color: #7A7A7A;
+    line-height: 1.3;
+}
+
+figcaption {
+    background-color: rgb(255, 255, 255); /* hoặc màu nền giống body */
+}
+
+/*
+ * Media Queries for Responsiveness
+ */
+@media screen and (max-width: 37.8125em) {
+    .align > li {
+        width: 100%;
+        min-height: 440px;
+        height: auto;
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+
+    .book {
+        margin: 0 auto;
+    }
+
+    figcaption {
+        text-align: center;
+        width: 320px;
+        top: 250px;
+        padding-left: 0;
+        left: -80px;
+        font-size: 90%;
+    }
+}
+
+.section-3 {
+  height: 100vh;
+}
+
+.header-section {
+  width: 100%;
+}
+
+.component {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;         /* ← thêm dòng này */
+  align-items: flex-start; /* ← thêm dòng này */
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* Ẩn ban đầu */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* Xuất hiện từ bên trái */
+.scroll-animate.from-left {
+  transform: translateX(-50px);
+}
+
+/* Xuất hiện từ bên phải */
+.scroll-animate.from-right {
+  transform: translateX(50px);
+}
+
+/* Khi xuất hiện */
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate.delay-1 {
+  transition-delay: 0.2s;
+}
+.scroll-animate.delay-2 {
+  transition-delay: 0.4s;
+}
+.scroll-animate.delay-3 {
+  transition-delay: 0.6s;
+}
+.scroll-animate.delay-4 {
+  transition-delay: 0.8s;
+}
+.scroll-animate.delay-5 {
+  transition-delay: 1s;
+}
+
+.hero-banner {
+  height: 90vh; /* Chiếm toàn bộ chiều cao màn hình */
+  display: flex;
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center;      /* Căn giữa dọc */
+  padding: 0 40px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.text-content {
+  max-width: 400px;
+  text-align: left;
+}
+
+.text-content h1 {
+  font-size: 55px;
+  color: #4D5F81;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  color: #7A7A7A;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.text-content button {
+  padding: 12px 20px;
+  background-color: #4D5F81;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.text-content button:hover {
+  background-color: #1E1D32;
+}
+
+/* ❗ Đây là phần cần sửa: */
+.carousel {
+  width: 660px; /* 3 ảnh * 220px (200px ảnh + 20px khoảng) */
+  height: 400px;  /* cao hơn 1 chút so với ảnh để tránh cắt */
+  overflow: hidden;
+  position: relative;
+  margin-left: 110px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slider img {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  margin-right: -30px;
+  transition: transform 0.3s, scale 0.3s, opacity 0.3s;
+  transform: scale(0.72); /* nhỏ mặc định */
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider img.active {
+  transform: scale(0.87);  /* ảnh giữa to hơn */
+  opacity: 1;
+}
+
+.slider img:last-child {
+  margin-right: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-right: -70px;
+  margin-top: -8px; /* 👈 thêm dòng này */
+}
+
+.logo img {
+  width: 123px;
+  height: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.nav-menu li {
+  position: relative;
+  font-size: 18px;
+  color: #4D5F81;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #4D5F81;
+}
+
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  position: relative;
+  border: 2px solid #E0E0E0;
+  border-radius: 32px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  height: 48px;           /* cao hơn */
+  min-width: 220px;       /* rộng hơn */
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;         /* chữ to hơn */
+  width: 160px;            /* khung nhập rộng hơn */
+}
+
+.search-box img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.search-box input::placeholder {
+  color: #7A7A7A;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* 👈 chỉnh khoảng cách giữa 2 icon tại đây */
+}
+
+.nav-icon {
+  width: 35px;   /* hoặc to hơn, ví dụ 36px, 40px tùy ý */
+  height: 35px;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
+.nav-line {
+  max-width: 1170px;  /* hoặc bất kỳ giá trị nào bạn muốn */
+  height: 1px;
+  background-color: #E0E0E0;
+  margin: 50px auto 0 auto;  /* căn giữa, cách trên 80px */
+  border: none;
+  width: 100%; /* giữ cho line co giãn đầy đủ trong max-width */
+}
