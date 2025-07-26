@@ -541,7 +541,8 @@ figcaption span {
 
 figcaption p {
     color: #7A7A7A;
-    line-height: 1.3;
+    line-height: 1.6;
+    text-align: justify;
 }
 
 figcaption {
