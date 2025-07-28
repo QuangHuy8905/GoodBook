@@ -56,7 +56,7 @@ a {
     font-size: 16px;
     letter-spacing: 2px;
     color: #7A7A7A;
-    margin: 15px 0 40px 0;
+    margin-top: 200px;
 }
 
 .main-heading-wrapper {
@@ -77,26 +77,7 @@ a {
   white-space: nowrap;
 }
 
-.line {
-  height: 1px;
-  background-color: #E0E0E0;
-  opacity: 1;
-  width: 335px;
-  margin-top: 20px;
-}
 
-.bottom-line {
-  max-width: 1170px;  /* hoặc bất kỳ giá trị nào bạn muốn */
-  height: 1px;
-  background-color: #E0E0E0;
-  margin: 80px auto 0 auto;  /* căn giữa, cách trên 80px */
-  border: none;
-  width: 100%; /* giữ cho line co giãn đầy đủ trong max-width */
-}
-
-/*
- * Button Styles
- */
 .btn {
     display: inline-block;
     text-transform: uppercase;
@@ -121,20 +102,21 @@ a {
  * Defines the alignment and individual list item styling for books.
  */
 .align {
-    clear: both;
-    margin: auto;
-    width: 100%;
-    max-width: 1170px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    align-items: stretch; /* Cho các item cao bằng nhau */
 }
 
 .align > li {
-    width: 500px;
-    min-height: 300px;
-    display: inline-block;
-    margin: 30px 20px 30px 30px;
-    padding: 0 0 0 60px;
-    vertical-align: top;
+    width: calc(33.333% - 26px);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-img {
@@ -678,7 +660,7 @@ figcaption {
 
 .main-heading {
   font-weight: 600;
-  font-size: 36px;
+  font-size: 48px;
   margin-top: 0px;
   color: #4D5F81;
   white-space: nowrap;
@@ -688,7 +670,8 @@ figcaption {
     font-weight: 500;
     font-size: 16px;
     color: #7A7A7A;
-    margin: 15px 0 40px 0;
+    margin-top: 20px;
+    margin-bottom: 80px;
 }
 
 /* Ẩn ban đầu */
@@ -730,3 +713,36 @@ figcaption {
   transition-delay: 1s;
 }
 
+.book-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.book-description {
+  margin-top: 50px;
+  text-align: center;
+  max-width: 240px;
+}
+
+.book-description h1 {
+  font-size: 22px;
+  color: #4D5F81;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.book-description span {
+  font-size: 14px;
+  color: #7A7A7A;
+  display: block;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.book-description p {
+  font-size: 18px;
+  color: #4D5F81;
+  font-weight: 700;
+}

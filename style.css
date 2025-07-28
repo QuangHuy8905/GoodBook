@@ -75,7 +75,7 @@ a {
 
 .main-heading {
   font-weight: 600;
-  font-size: 36px;
+  font-size: 48px;
   margin-top: 10px;
   color: #4D5F81;
   white-space: nowrap;
@@ -90,7 +90,7 @@ a {
 }
 
 .bottom-line {
-  max-width: 1170px;  /* hoặc bất kỳ giá trị nào bạn muốn */
+  max-width: 1280px;  /* hoặc bất kỳ giá trị nào bạn muốn */
   height: 1px;
   background-color: #E0E0E0;
   margin: 80px auto 0 auto;  /* căn giữa, cách trên 80px */
@@ -577,6 +577,11 @@ figcaption {
 
 .section-3 {
   height: 100vh;
+  margin-top: 50px; /* tạo khoảng cách xuống dưới */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* căn giữa dọc */
+  align-items: center;     /* căn giữa ngang */
 }
 
 .header-section {
@@ -639,22 +644,24 @@ figcaption {
   padding: 0 40px;
   flex-wrap: wrap;
   box-sizing: border-box;
+  margin-bottom: -50px;
 }
 
 .text-content {
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
+  margin-left: 90px;
 }
 
 .text-content h1 {
-  font-size: 55px;
+  font-size: 60px;
   color: #4D5F81;
   margin-bottom: 20px;
 }
 
 .text-content p {
   color: #7A7A7A;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 1.6;
   margin-bottom: 40px;
   text-align: justify;
@@ -665,6 +672,7 @@ figcaption {
   background-color: #4D5F81;
   color: white;
   border: none;
+  font-size: 16px;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
@@ -680,7 +688,8 @@ figcaption {
   height: 400px;  /* cao hơn 1 chút so với ảnh để tránh cắt */
   overflow: hidden;
   position: relative;
-  margin-left: 110px;
+  margin-left: 50px;
+  margin-right: 55px;
 }
 
 .slider {
@@ -806,4 +815,69 @@ figcaption {
   margin: 50px auto 0 auto;  /* căn giữa, cách trên 80px */
   border: none;
   width: 100%; /* giữ cho line co giãn đầy đủ trong max-width */
+}
+
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 40px;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 380px;                 /* 👈 chiều rộng cố định */
+  height: 300px;  
+  background-color: #F4F8FF;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.feature-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+  margin-left: 24px;  /* 👈 icon cũng thụt vào */
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  color: #4D5F81;
+  margin-bottom: 10px;
+  padding-left: 24px;  /* 👈 thụt đều tiêu đề + mô tả */
+}
+
+.feature-card p {
+  font-size: 18px;
+  color: #7A7A7A;
+  line-height: 1.6;
+  max-width: 280px;
+  text-align: justify;
+  padding-left: 24px;  /* 👈 thụt đều tiêu đề + mô tả */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 500px;
+  }
 }
