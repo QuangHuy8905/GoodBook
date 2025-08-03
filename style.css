@@ -917,7 +917,7 @@ figcaption {
   color: #000000;
   font-weight: 600;
   white-space: nowrap;
-  margin: 0; /* xóa margin nếu cần */
+  margin-top: 16px;
 }
 
 .info-desc {
@@ -932,6 +932,7 @@ figcaption {
   background-color: #4D5F81;
   height: 60px;
   margin: 0 20px;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
