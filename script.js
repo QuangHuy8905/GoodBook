@@ -24,7 +24,7 @@ let interval;
 // Khi slide
 function nextSlide() {
   currentIndex++;
-  slider.style.transition = "transform 0.5s ease-in-out";
+  slider.style.transition = "transform 0.7s ease-in-out";
   slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
   updateActiveImage();
 
