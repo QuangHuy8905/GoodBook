@@ -945,3 +945,115 @@ figcaption {
     display: none;
   }
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  gap: 60px; /* Thêm dòng này để tạo khoảng cách rõ ràng hơn giữa text và ảnh */
+  margin-top: 130px;
+}
+
+.left {
+  flex: 1;
+  max-width: 600px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.right img {
+  width: 501px;
+  height: 404px;
+  object-fit: cover;
+}
+
+.branding {
+  font-weight: 700;
+  font-size: 14px;
+  color: #1E1D32;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* khoảng cách giữa thanh và chữ */
+}
+
+.line-bar {
+  width: 33px;
+  height: 2px;
+  background-color: #1E1D32;
+  display: inline-block;
+}
+
+.headline {
+  font-weight: 800;
+  font-size: 30px;
+  color: #4D5F81;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.subtext {
+  font-weight: 500;
+  font-size: 18px;
+  color: #7a7a7a;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  border: 2px solid #4D5F81;        /* stroke */
+  border-radius: 10px 0 0 10px;     /* bo góc bên trái */
+  outline: none;
+  text-align: left;
+}
+
+.input-group button {
+  background-color: #4D5F81;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 30px;
+  border: none;
+  border-radius: 0 10px 10px 0;     /* bo góc bên phải */
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.input-group {
+  display: flex;
+  width: 600px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.input-group input::placeholder {
+  color: #7A7A7A;
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 14px;
+}
+
