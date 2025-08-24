@@ -1,0 +1,137 @@
+body {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: white; /* This color is overridden for specific elements like headings and paragraphs */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Mini Reset */
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::before,
+::after {
+    content: "";
+}
+
+html,
+body {
+    height: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    min-height: 100vh; /* luôn ít nhất là chiều cao màn hình */
+}
+
+html {
+    font-size: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin-right: -70px;
+  margin-top: -8px; /* 👈 thêm dòng này */
+}
+
+.logo img {
+  width: 123px;
+  height: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.nav-menu li {
+  position: relative;
+  font-size: 18px;
+  color: #4D5F81;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #4D5F81;
+}
+
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-box {
+  position: relative;
+  border: 2px solid #E0E0E0;
+  border-radius: 32px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  height: 48px;           /* cao hơn */
+  min-width: 220px;       /* rộng hơn */
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;         /* chữ to hơn */
+  width: 160px;            /* khung nhập rộng hơn */
+}
+
+.search-box img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.search-box input::placeholder {
+  color: #7A7A7A;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* 👈 chỉnh khoảng cách giữa 2 icon tại đây */
+}
+
+.nav-icon {
+  width: 35px;   /* hoặc to hơn, ví dụ 36px, 40px tùy ý */
+  height: 35px;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
+.nav-line {
+  max-width: 1170px;  /* hoặc bất kỳ giá trị nào bạn muốn */
+  height: 1px;
+  background-color: #E0E0E0;
+  margin: 50px auto 0 auto;  /* căn giữa, cách trên 80px */
+  border: none;
+  width: 100%; /* giữ cho line co giãn đầy đủ trong max-width */
+}
